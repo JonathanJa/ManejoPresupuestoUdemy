@@ -1,0 +1,85 @@
+﻿@model IEnumerable<IndiceCuentaViewModel>
+@{
+    ViewData["Title"] = "Cuenta";
+
+    string FormatearBalances(decimal balances)
+    {
+        return Math.Abs(balances).ToString("N");
+    }
+
+    string obtenerclaseBalances(decimal balances)
+    {
+        return balances >= 0 ? "Activo" : "Pasivo";
+    }
+}
+
+<h1>Cuenta</h1>
+<a asp-action="Crear" class="btn btn-primary mb-3">Crear cuenta</a>
+<div class="contenedor-totales mb-3">
+    <div>
+        <div>
+            <strong>Activo</strong>
+        </div>
+        <div class="Activo">
+            @FormatearBalances(Model.Where(x=>x.balance>0).Sum(x=>x.balance))
+        </div>
+    </div>
+     <div>
+        <div>
+            <strong>Pasivo</strong>
+        </div>
+        <div class="Pasivo">
+            @FormatearBalances(Model.Where(x=>x.balance<0).Sum(x=>x.balance))
+        </div>
+    </div>
+     <div>
+        <div>
+            <strong>Total</strong>
+        </div>
+        <div>
+            @FormatearBalances(Model.Sum(x=>x.balance))
+        </div>
+    </div>
+</div>
+<div class="accordion acordion-cuentas">
+    @foreach ( var tipocuenta in Model)
+    {
+        <div class="accordion-items">
+            <h2 class="accordion-header" id="CabezeraUno">
+                @{
+                    var id = tipocuenta.TipoCuenta.Replace(" ", "");
+                    var databstarget = "#" + id;
+                    var claseTipoCuenta = obtenerclaseBalances(tipocuenta.balance);
+                }
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="@databstarget">
+                    <span class="me-3">
+                        <span><strong>@tipocuenta.TipoCuenta</strong></span>
+                        <span class="@claseTipoCuenta">@FormatearBalances(tipocuenta.balance)</span>
+                    </span>
+
+                </button>
+            </h2>
+            <div id="@id" class="accordion-collapse collapse show">
+                <div>
+                    <ul class="list-group">
+                        @foreach (var cuenta in tipocuenta.cuentas)
+                        {
+                            var clasecuenta = obtenerclaseBalances(cuenta.Balance);
+                            <li class="list-group-item">
+                                <span><strong><a asp-action="detalle" asp-route-id="@cuenta.Id">@cuenta.Nombre</a></strong>
+                                    <a asp-action="Editar" asp-route-id="@cuenta.Id" class="btn-primary btn"><i class="bi-pencil-fill"></i></a>
+                                    <a asp-action="Borrar" asp-route-id="@cuenta.Id" class="btn-danger btn"><i class="bi-trash-fill"></i></a>
+                                </span>
+                                <span class="@clasecuenta">@FormatearBalances(cuenta.Balance)</span>
+
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>

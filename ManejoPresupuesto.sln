@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManejoPresupuesto", "ManejoPresupuesto\ManejoPresupuesto.csproj", "{7FEB25E6-94CB-4E30-A8CC-94C9EAF4B9A0}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DB", "DB\DB.sqlproj", "{C5AF4C24-DB80-4CAC-BC8E-3E2B28E8E3CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FEB25E6-94CB-4E30-A8CC-94C9EAF4B9A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FEB25E6-94CB-4E30-A8CC-94C9EAF4B9A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FEB25E6-94CB-4E30-A8CC-94C9EAF4B9A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FEB25E6-94CB-4E30-A8CC-94C9EAF4B9A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5AF4C24-DB80-4CAC-BC8E-3E2B28E8E3CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5AF4C24-DB80-4CAC-BC8E-3E2B28E8E3CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5AF4C24-DB80-4CAC-BC8E-3E2B28E8E3CD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C5AF4C24-DB80-4CAC-BC8E-3E2B28E8E3CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5AF4C24-DB80-4CAC-BC8E-3E2B28E8E3CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5AF4C24-DB80-4CAC-BC8E-3E2B28E8E3CD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC07527B-EACD-449E-AF8B-371097295E55}
+	EndGlobalSection
+EndGlobal
